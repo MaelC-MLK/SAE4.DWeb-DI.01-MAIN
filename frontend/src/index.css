@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root{
+        --color-white: #FFFFFF;
+        --color-dark-gray: #1F1F28;
+        --color-darker-gray: #15151E;
+        --color-purple: #5E3E91;
+        --color-red: #D92E41;
+
+        --font-family: 'roboto', sans-serif;
+    }
+}
