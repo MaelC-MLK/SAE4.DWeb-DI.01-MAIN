@@ -20,7 +20,14 @@ class MovieCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('name');
-        yield AssociationField::new('category');
+        yield AssociationField::new('category'); 
+        yield TextField::new('year');
+        yield TextField::new('realisateur');  
+        yield TextField::new('img');
+        yield TextField::new('lien');  
+        yield TextField::new('description');
+        yield TextField::new('bigimg');   
+        yield TextField::new('duree');  
     }
  
 }

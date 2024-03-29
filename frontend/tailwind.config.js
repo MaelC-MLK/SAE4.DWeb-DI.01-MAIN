@@ -3,25 +3,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: "var(--font-roboto)",
+      },
       colors: {
-        background: "hsl(var(--background) /<alpha-value>)",
-        foreground: "hsl(var(--foreground) /<alpha-value>)",
-      },
-      textColor: {
-        background: "hsl(var(--background) /<alpha-value>)",
-        foreground: "hsl(var(--foreground) /<alpha-value>)",
-      },
-      maxWidth: {
-        ch: "60ch",
-      },
-      aspectRatio: {
-        card: "1 / 1.25",
-      },
-      backgroundImage: {
-        shape: "url('./assets/bgshapes.svg')",
-      },
-      borderRadius: {
-        DEFAULT: "var(--radius)",
+        white: "var(--color-white)",
+        bgGray: "var(--color-dark-gray)",
+        bgDarkgray: "var(--color-darker-gray)",
+        purpleBTN: "var(--color-purple)",
+        redBTN: "var(--color-red)",
+        cardColor: "var(--color-yellow)"
       },
     },
   },

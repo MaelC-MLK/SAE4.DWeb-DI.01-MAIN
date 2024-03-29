@@ -27,6 +27,34 @@ class Movie
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'movies')]
     private Collection $category;
 
+    #[ORM\Column(length: 255)]
+    #[Groups(['json_category'])]
+    private ?string $year = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['json_category'])]
+    private ?string $realisateur = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['json_category'])]
+    private ?string $img = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['json_category'])]
+    private ?string $lien = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['json_category'])]
+    private ?string $description = null;
+
+    #[ORM\Column(length: 255)]
+    #[Groups(['json_category'])]
+    private ?string $bigimg = null;
+
+    #[ORM\Column(length: 20)]
+    private ?string $duree = null;
+
+    
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -69,6 +97,90 @@ class Movie
     public function removeCategory(Category $category): static
     {
         $this->category->removeElement($category);
+
+        return $this;
+    }
+
+    public function getYear(): ?string
+    {
+        return $this->year;
+    }
+
+    public function setYear(string $year): static
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    public function getRealisateur(): ?string
+    {
+        return $this->realisateur;
+    }
+
+    public function setRealisateur(string $realisateur): static
+    {
+        $this->realisateur = $realisateur;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): static
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    public function getLien(): ?string
+    {
+        return $this->lien;
+    }
+
+    public function setLien(string $lien): static
+    {
+        $this->lien = $lien;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getBigimg(): ?string
+    {
+        return $this->bigimg;
+    }
+
+    public function setBigimg(string $bigimg): static
+    {
+        $this->bigimg = $bigimg;
+
+        return $this;
+    }
+
+    public function getDuree(): ?string
+    {
+        return $this->duree;
+    }
+
+    public function setDuree(string $duree): static
+    {
+        $this->duree = $duree;
 
         return $this;
     }

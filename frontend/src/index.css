@@ -3,18 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Primitives Tokens  */
-    --clr-white: 0 0% 100%;
-    --clr-dark-grey: 0 0% 10%;
-    /* Sementics Tokens */
-    --foreground: var(--clr-dark-grey);
-    --background: var(--clr-white);
+    :root{
+        --color-white: #FFFFFF;
+        --color-dark-gray: #1F1F28;
+        --color-darker-gray: #15151E;
+        --color-purple: #5E3E91;
+        --color-red: #D92E41;
+        --color-yellow: #FFFF99;
 
-    --radius: 0.5rem;
-    --gap: 1rem;
-
-    
-    
-  }
+        --font-family: 'roboto', sans-serif;
+    }
 }
