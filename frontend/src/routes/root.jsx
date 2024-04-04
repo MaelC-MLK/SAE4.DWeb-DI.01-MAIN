@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { fetchAllCatData } from "../lib/loaders";
 import { CatContext } from "../ui/catContext/index";
+import FooterBar from "../ui/Footer";
 
 export async function loader() {
     const catData = await fetchAllCatData();
@@ -15,7 +16,6 @@ export async function loader() {
 export default function () {
   const [valeurRecherche, setValeurRecherche] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
-
   const [catData, setCatData] = useState([]);
 
 useEffect(() => {
@@ -33,7 +33,7 @@ useEffect(() => {
   };
   return (
     <>
-    <section className="mx-auto flex flex-row flex-wrap justify-center bg-bgDarkgray">
+    <section className="flex-grow min-h-screen mx-auto flex flex-row flex-wrap justify-center bg-bgDarkgray">
       <SearchContext.Provider value={valeurRecherche}>
         <CatContext.Provider value={{ selectedCategory, setSelectedCategory }}>
           <NavBar 
@@ -41,6 +41,7 @@ useEffect(() => {
             catData={catData} 
           />
           <Outlet />
+          <FooterBar />
         </CatContext.Provider>
       </SearchContext.Provider>
     </section>

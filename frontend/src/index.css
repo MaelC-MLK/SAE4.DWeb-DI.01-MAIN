@@ -10,7 +10,10 @@
         --color-purple: #5E3E91;
         --color-red: #D92E41;
         --color-yellow: #FFFF99;
-
         --font-family: 'roboto', sans-serif;
+    }
+
+    .dark{
+        --color-white: #000000;
     }
 }

@@ -27,7 +27,7 @@ const button = cva(base, {
     },
     size: {
       small: ["text-base", "py-2", "px-4"],
-      medium: ["text-md", "py-3", "px-6"],
+      medium: ["text-md", "py-3", "px-4", "md:px-8"],
     },
   },
   compoundVariants: [{ intent: "primary", size: "medium" }],
