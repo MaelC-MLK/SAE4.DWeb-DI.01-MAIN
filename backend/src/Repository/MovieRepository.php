@@ -21,6 +21,18 @@ class MovieRepository extends ServiceEntityRepository
         parent::__construct($registry, Movie::class);
     }
 
+
+    public function findByMiseEnAvant()
+{
+    return $this->createQueryBuilder('m')
+        ->andWhere('m.misenavant = :val')
+        ->setParameter('val', true)
+        ->getQuery()
+        ->getResult()
+    ;
+}
+
+
     //    /**
     //     * @return Movie[] Returns an array of Movie objects
     //     */

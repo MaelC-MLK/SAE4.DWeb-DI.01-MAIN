@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 
@@ -27,7 +28,8 @@ class MovieCrudController extends AbstractCrudController
         yield TextField::new('lien');  
         yield TextField::new('description');
         yield TextField::new('bigimg');   
-        yield TextField::new('duree');  
+        yield TextField::new('duree'); 
+        yield BooleanField::new('misenavant'); 
     }
  
 }

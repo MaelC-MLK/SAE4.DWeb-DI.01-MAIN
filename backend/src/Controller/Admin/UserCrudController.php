@@ -24,6 +24,8 @@ class UserCrudController extends AbstractCrudController
       $email = EmailField::new('email');
       // un champ de type choice(select) pour la propriété roles
       $roles = ChoiceField::new('roles');
+      // un champ pour le mettre un pseudo 
+      $pseudo = TextField::new('pseudo');
       // définition des choix possibles pour le champ roles
       $roles->setChoices(['ROLE_USER'=>'ROLE_USER', 'ROLE_ADMIN'=>'ROLE_ADMIN']);
       // autoriser le choix multiple
@@ -31,7 +33,8 @@ class UserCrudController extends AbstractCrudController
       // retourner les champs
       return [
          $email,
-         $roles
+         $roles,
+         $pseudo
       ];
     }
     

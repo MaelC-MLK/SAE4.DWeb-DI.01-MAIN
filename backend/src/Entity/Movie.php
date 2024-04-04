@@ -16,43 +16,52 @@ class Movie
    #[ORM\Id]
    #[ORM\GeneratedValue]
    #[ORM\Column]
-   #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
    private ?int $id = null;
 
 
     #[ORM\Column(length: 255)]
-    #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $name = null;
 
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'movies')]
     private Collection $category;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $year = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $realisateur = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $img = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $lien = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['json_category'])]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $bigimg = null;
 
     #[ORM\Column(length: 20)]
+    #[Groups(['json_category', 'json_watchlist'])]
     private ?string $duree = null;
+
+    #[ORM\Column]
+    #[Groups(['json_category', 'json_watchlist'])]
+    private ?bool $misenavant = null;
+
+    #[ORM\ManyToMany(targetEntity: Watchlist::class, mappedBy: 'movies')]
+    private Collection $watchlist;
+
 
     
     public function __construct()
@@ -184,4 +193,31 @@ class Movie
 
         return $this;
     }
+
+    public function isMisenavant(): ?bool
+    {
+        return $this->misenavant;
+    }
+
+    public function setMisenavant(bool $misenavant): static
+    {
+        $this->misenavant = $misenavant;
+
+        return $this;
+    }
+
+        /**
+     * @return Collection<int, Watchlist>
+     */
+    public function getWatchlist(): Collection
+    {
+        return $this->watchlist;
+    }
+        
+    
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
 }
