@@ -9,7 +9,7 @@ import Cookies from 'js-cookie';
 export default function Movie() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
-
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
 
   const handleAddToWatchlist = async () => {
     const user = JSON.parse(Cookies.get('user'));
@@ -18,7 +18,7 @@ export default function Movie() {
     });
   
     if (response.ok) {
-      alert('Movie added to watchlist successfully');
+      setIsInWatchlist(true);
     } else {
       alert('Failed to add movie to watchlist');
     }
@@ -63,7 +63,9 @@ export default function Movie() {
           </div>
           <p className="font-medium mr-20">{movie.description}</p>
         </div>
-        <button className="w-full rounded bg-red-500 px-4 py-2 text-white duration-300 hover:bg-red-700 hover:duration-300" onClick={handleAddToWatchlist}>Mettre dans votre Watchlist</button>
+        <button className="w-full rounded bg-red-500 px-4 py-2 text-white duration-300 hover:bg-red-700 hover:duration-300" onClick={handleAddToWatchlist}>
+      {isInWatchlist ? 'Ce film est dans votre Watchlist' : 'Mettre dans votre Watchlist'}
+    </button>
       </div>
       <iframe
         className="w-[80rem] h-[45rem]"
